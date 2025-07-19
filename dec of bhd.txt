@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎂 Happy Birthday!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe6f0, #dff7f4);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    .cake {
+      position: relative;
+      width: 150px;
+      height: 180px;
+      background: #fff0f5;
+      border-radius: 10px;
+      border: 4px solid #ffd6d6;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .cake::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 30px;
+      background: #ffb347;
+      border-radius: 2px;
+    }
+
+    .flame {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 20px;
+      background: radial-gradient(circle, #ffd700, #ff6347);
+      border-radius: 50%;
+      animation: flicker 0.3s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1); opacity: 1; }
+      100% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #ffd1dc;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffc0cb;
+    }
+
+    .message {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 18px;
+      color: #6a1b9a;
+      opacity: 0;
+      transition: opacity 1s ease;
+      max-width: 300px;
+    }
+
+    .message.show {
+      opacity: 1;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="cake">
+    <div class="flame" id="flame"></div>
+  </div>
+
+  <button onclick="blowCandle()">Blow Me 🎈</button>
+
+  <div class="message" id="message">
+    🎉 Happy Birthday! 🎂✨<br>
+    Wishing you a day full of laughter, love, cake, and sparkles! 🎈💖<br>
+    May all your dreams come true today and always! 🧁🌈🎁
+  </div>
+
+  <script>
+    function blowCandle() {
+      const flame = document.getElementById('flame');
+      const message = document.getElementById('message');
+
+      // Simulate blowing out candle
+      flame.style.opacity = 0;
+
+      // Show birthday message
+      setTimeout(() => {
+        message.classList.add('show');
+      }, 500);
+    }
+  </script>
+
+</body>
+</html>
